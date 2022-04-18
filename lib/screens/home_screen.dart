@@ -6,13 +6,23 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.grey[900],
+          title: Text('TicTacToe'),
+        ),
         backgroundColor: Colors.grey[900],
-        title: Text('TicTacToe'),
-      ),
-      backgroundColor: Colors.grey[900],
-      body: GridView.builder(
+        body: Column(
+          children: [
+            getScoreBorad(),
+            getGridView(),
+          ],
+        ));
+  }
+
+  Widget getGridView() {
+    return Expanded(
+      child: GridView.builder(
         itemCount: 9,
         gridDelegate:
             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
