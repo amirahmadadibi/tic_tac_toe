@@ -12,12 +12,32 @@ class Home extends StatelessWidget {
           title: Text('TicTacToe'),
         ),
         backgroundColor: Colors.grey[900],
-        body: Column(
-          children: [
-            getScoreBorad(),
-            getGridView(),
-          ],
+        body: SafeArea(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 20,
+              ),
+              getScoreBorad(),
+              SizedBox(
+                height: 40,
+              ),
+              getGridView(),
+              getTurn(),
+            ],
+          ),
         ));
+  }
+
+  Widget getTurn() {
+    return Text(
+      'trun O',
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+      ),
+    );
   }
 
   Widget getGridView() {
