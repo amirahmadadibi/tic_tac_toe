@@ -47,16 +47,25 @@ class Home extends StatelessWidget {
         gridDelegate:
             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            height: 100,
-            width: 100,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
+          return GestureDetector(
+            onTap: () {
+              tapped(index);
+            },
+            child: Container(
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+              ),
             ),
           );
         },
       ),
     );
+  }
+
+  void tapped(int index) {
+    print('$index');
   }
 
   Widget getScoreBorad() {
