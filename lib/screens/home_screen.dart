@@ -66,11 +66,14 @@ class _HomeState extends State<Home> {
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
               ),
-              child: Text(
-                xOrOList[index],
-                style: TextStyle(
-                  fontSize: 40,
-                  color: Colors.white,
+              child: Center(
+                child: Text(
+                  xOrOList[index],
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: xOrOList[index] == 'X' ? Colors.white : Colors.red,
+                  ),
                 ),
               ),
             ),
