@@ -9,6 +9,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   bool isTurnO = true;
+
+  List<String> xOrOList = ['', '', '', '', '', '', '', '', ''];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,6 +76,12 @@ class _HomeState extends State<Home> {
   void tapped(int index) {
     print('$index');
     setState(() {
+      if (isTurnO) {
+        xOrOList[index] = 'O';
+      } else {
+        xOrOList[index] = 'X';
+      }
+
       isTurnO = !isTurnO;
     });
   }
