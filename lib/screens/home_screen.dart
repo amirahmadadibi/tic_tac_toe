@@ -97,7 +97,17 @@ class _HomeState extends State<Home> {
       }
 
       isTurnO = !isTurnO;
+
+      checkWineer();
     });
+  }
+
+  void checkWineer() {
+    if (xOrOList[0] == xOrOList[1] &&
+        xOrOList[0] == xOrOList[2] &&
+        xOrOList[0] != '') {
+      print('winner is ' + xOrOList[0]);
+    }
   }
 
   Widget getScoreBorad() {
