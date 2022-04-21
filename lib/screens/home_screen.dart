@@ -108,6 +108,48 @@ class _HomeState extends State<Home> {
         xOrOList[0] != '') {
       print('winner is ' + xOrOList[0]);
     }
+
+    if (xOrOList[3] == xOrOList[4] &&
+        xOrOList[3] == xOrOList[5] &&
+        xOrOList[3] != '') {
+      print('winner is ' + xOrOList[3]);
+    }
+
+    if (xOrOList[6] == xOrOList[7] &&
+        xOrOList[6] == xOrOList[8] &&
+        xOrOList[6] != '') {
+      print('winner is ' + xOrOList[6]);
+    }
+
+    if (xOrOList[0] == xOrOList[3] &&
+        xOrOList[0] == xOrOList[6] &&
+        xOrOList[0] != '') {
+      print('winner is ' + xOrOList[0]);
+    }
+
+    if (xOrOList[1] == xOrOList[4] &&
+        xOrOList[1] == xOrOList[7] &&
+        xOrOList[1] != '') {
+      print('winner is ' + xOrOList[1]);
+    }
+
+    if (xOrOList[2] == xOrOList[5] &&
+        xOrOList[2] == xOrOList[8] &&
+        xOrOList[2] != '') {
+      print('winner is ' + xOrOList[2]);
+    }
+
+    if (xOrOList[0] == xOrOList[4] &&
+        xOrOList[0] == xOrOList[8] &&
+        xOrOList[0] != '') {
+      print('winner is ' + xOrOList[0]);
+    }
+
+    if (xOrOList[2] == xOrOList[4] &&
+        xOrOList[2] == xOrOList[6] &&
+        xOrOList[2] != '') {
+      print('winner is ' + xOrOList[2]);
+    }
   }
 
   Widget getScoreBorad() {
