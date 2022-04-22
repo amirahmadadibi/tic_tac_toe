@@ -17,6 +17,7 @@ class _HomeState extends State<Home> {
 
   int scoreX = 0;
   int scoreO = 0;
+  String winnerTitle = '';
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +44,37 @@ class _HomeState extends State<Home> {
               ),
               getScoreBorad(),
               SizedBox(
-                height: 40,
+                height: 20,
+              ),
+              getResultButton(),
+              SizedBox(
+                height: 20,
               ),
               getGridView(),
               getTurn(),
             ],
           ),
         ));
+  }
+
+  Widget getResultButton() {
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(
+        primary: Colors.white,
+        side: BorderSide(color: Colors.white, width: 2),
+      ),
+      onPressed: () {
+        setState(() {
+          gameHasResult = false;
+          clearGame();
+        });
+      },
+      child: Text(
+        '$winnerTitle, play again!',
+        style: TextStyle(
+            color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+      ),
+    );
   }
 
   Widget getTurn() {
@@ -244,7 +269,7 @@ class _HomeState extends State<Home> {
   void setResult(String winner, String title) {
     setState(() {
       gameHasResult = true;
-
+      winnerTitle = title;
       if (winner == 'X') {
         scoreX = scoreX + 1;
       } else if (winner == 'O') {
