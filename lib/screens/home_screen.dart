@@ -126,7 +126,10 @@ class _HomeState extends State<Home> {
   }
 
   void tapped(int index) {
-    print('$index');
+    if (gameHasResult) {
+      return;
+    }
+
     setState(() {
       if (xOrOList[index] != '') {
         return;
