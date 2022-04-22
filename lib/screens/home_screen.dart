@@ -58,21 +58,24 @@ class _HomeState extends State<Home> {
   }
 
   Widget getResultButton() {
-    return OutlinedButton(
-      style: OutlinedButton.styleFrom(
-        primary: Colors.white,
-        side: BorderSide(color: Colors.white, width: 2),
-      ),
-      onPressed: () {
-        setState(() {
-          gameHasResult = false;
-          clearGame();
-        });
-      },
-      child: Text(
-        '$winnerTitle, play again!',
-        style: TextStyle(
-            color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+    return Visibility(
+      visible: gameHasResult,
+      child: OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          primary: Colors.white,
+          side: BorderSide(color: Colors.white, width: 2),
+        ),
+        onPressed: () {
+          setState(() {
+            gameHasResult = false;
+            clearGame();
+          });
+        },
+        child: Text(
+          '$winnerTitle, play again!',
+          style: TextStyle(
+              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
