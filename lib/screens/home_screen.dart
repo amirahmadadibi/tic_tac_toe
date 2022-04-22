@@ -13,6 +13,10 @@ class _HomeState extends State<Home> {
   List<String> xOrOList = ['', '', '', '', '', '', '', '', ''];
 
   int filledBoxes = 0;
+  bool gameHasResult = false;
+
+  int scoreX = 0;
+  int scoreO = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -118,61 +122,63 @@ class _HomeState extends State<Home> {
     if (xOrOList[0] == xOrOList[1] &&
         xOrOList[0] == xOrOList[2] &&
         xOrOList[0] != '') {
-      print('winner is ' + xOrOList[0]);
+      setResult(xOrOList[0], 'winner is ' + xOrOList[0]);
       return;
     }
 
     if (xOrOList[3] == xOrOList[4] &&
         xOrOList[3] == xOrOList[5] &&
         xOrOList[3] != '') {
-      print('winner is ' + xOrOList[3]);
+      setResult(xOrOList[3], 'winner is ' + xOrOList[3]);
+
       return;
     }
 
     if (xOrOList[6] == xOrOList[7] &&
         xOrOList[6] == xOrOList[8] &&
         xOrOList[6] != '') {
-      print('winner is ' + xOrOList[6]);
+      setResult(xOrOList[6], 'winner is ' + xOrOList[6]);
+
       return;
     }
 
     if (xOrOList[0] == xOrOList[3] &&
         xOrOList[0] == xOrOList[6] &&
         xOrOList[0] != '') {
-      print('winner is ' + xOrOList[0]);
+      setResult(xOrOList[0], 'winner is ' + xOrOList[0]);
       return;
     }
 
     if (xOrOList[1] == xOrOList[4] &&
         xOrOList[1] == xOrOList[7] &&
         xOrOList[1] != '') {
-      print('winner is ' + xOrOList[1]);
+      setResult(xOrOList[1], 'winner is ' + xOrOList[1]);
       return;
     }
 
     if (xOrOList[2] == xOrOList[5] &&
         xOrOList[2] == xOrOList[8] &&
         xOrOList[2] != '') {
-      print('winner is ' + xOrOList[2]);
+      setResult(xOrOList[2], 'winner is ' + xOrOList[2]);
       return;
     }
 
     if (xOrOList[0] == xOrOList[4] &&
         xOrOList[0] == xOrOList[8] &&
         xOrOList[0] != '') {
-      print('winner is ' + xOrOList[0]);
+      setResult(xOrOList[0], 'winner is ' + xOrOList[0]);
       return;
     }
 
     if (xOrOList[2] == xOrOList[4] &&
         xOrOList[2] == xOrOList[6] &&
         xOrOList[2] != '') {
-      print('winner is ' + xOrOList[2]);
+      setResult(xOrOList[2], 'winner is ' + xOrOList[2]);
       return;
     }
 
     if (filledBoxes == 9) {
-      print('game is equal');
+      setResult('', 'Draw');
     }
   }
 
@@ -195,7 +201,7 @@ class _HomeState extends State<Home> {
               Padding(
                 padding: EdgeInsets.all(8),
                 child: Text(
-                  '0',
+                  '$scoreO',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 25.0,
@@ -221,7 +227,7 @@ class _HomeState extends State<Home> {
               Padding(
                 padding: EdgeInsets.all(8),
                 child: Text(
-                  '1',
+                  '$scoreX',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 25.0,
@@ -233,6 +239,21 @@ class _HomeState extends State<Home> {
         ),
       ],
     );
+  }
+
+  void setResult(String winner, String title) {
+    setState(() {
+      gameHasResult = true;
+
+      if (winner == 'X') {
+        scoreX = scoreX + 1;
+      } else if (winner == 'O') {
+        scoreO = scoreO + 1;
+      } else {
+        scoreX = scoreX + 1;
+        scoreO = scoreO + 1;
+      }
+    });
   }
 
   void clearGame() {
