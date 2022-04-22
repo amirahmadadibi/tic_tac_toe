@@ -21,6 +21,14 @@ class _HomeState extends State<Home> {
           elevation: 0,
           backgroundColor: Colors.grey[900],
           title: Text('TicTacToe'),
+          actions: [
+            IconButton(
+              onPressed: () {
+                clearGame();
+              },
+              icon: Icon(Icons.refresh),
+            )
+          ],
         ),
         backgroundColor: Colors.grey[900],
         body: SafeArea(
@@ -225,5 +233,15 @@ class _HomeState extends State<Home> {
         ),
       ],
     );
+  }
+
+  void clearGame() {
+    setState(() {
+      for (int i = 0; i < xOrOList.length; i++) {
+        xOrOList[i] = '';
+      }
+    });
+
+    filledBoxes = 0;
   }
 }
